@@ -36,4 +36,4 @@ will be queried.
 * `/results?first_name=fred&last_name=flintstone` (user foo) -> documents with first name "fred" and last name "flintstone"
 * `/results` (user foo) -> 400 missing parameter
 * `/results?first_name=fred&index=bar_index` (user foo) -> documents with first name "fred" in bar_index
-* `/results?first_name=fred&index=bar_index` (user bar) -> 403 forbidden
+* `/results?first_name=fred&index=bar_index` (user baz) -> 403 forbidden
