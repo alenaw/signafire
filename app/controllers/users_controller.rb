@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     if user.present?
       render json: read_response(user)
     else
-      render json: error_response('user not found'), status: 404
+      render_error(404, 'user not found')
     end
   end
 

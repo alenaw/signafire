@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  def error_response(message)
-    { error: message }.to_json
+  def render_error(status_code, message)
+    render json: { error: message }.to_json, status: status_code
   end
 end
