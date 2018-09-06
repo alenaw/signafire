@@ -10,25 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180906025225) do
+ActiveRecord::Schema.define(version: 20180906032308) do
 
-  create_table "elastic_indexes", force: :cascade do |t|
+  create_table "elastic_indices", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "elastic_indices_users", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "elastic_index_id"
+    t.index ["elastic_index_id"], name: "index_elastic_indices_users_on_elastic_index_id"
+    t.index ["user_id"], name: "index_elastic_indices_users_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "users_elastic_indexes", id: false, force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "elastic_index_id"
-    t.index ["elastic_index_id"], name: "index_users_elastic_indexes_on_elastic_index_id"
-    t.index ["user_id"], name: "index_users_elastic_indexes_on_user_id"
   end
 
 end
